@@ -1,4 +1,4 @@
-#create database
+# create database
 
 use master 
 go
@@ -25,81 +25,81 @@ go
 
 use toyunivers
 go
-create table Ïµ±ğ
+create table ç³»åˆ«
 (
-Ïµ±ğ´úÂë char(4) primary key,
-Ïµ±ğÃû³Æ varchar(50) not null,
-ÏµÖ÷ÈÎĞÕÃû varchar(20),
-Êé¼ÇĞÕÃû varchar(100),
+ç³»åˆ«ä»£ç  char(4) primary key,
+ç³»åˆ«åç§° varchar(50) not null,
+ç³»ä¸»ä»»å§“å varchar(20),
+ä¹¦è®°å§“å varchar(100),
 )
 go
-create table °à¼¶
+create table ç­çº§
 (
-°àºÅ char(8) primary key,
-°à¼¶Ãû³Æ varchar(50),
-Äê¼¶ char(4) check(Äê¼¶ like '[0-9][0-9][0-9][0-9]'),
-¸¨µ¼Ô± char(8),
-Ïµ±ğ´úÂë char(4) ,
- foreign key(Ïµ±ğ´úÂë) references Ïµ±ğ(Ïµ±ğ´úÂë),
+ç­å· char(8) primary key,
+ç­çº§åç§° varchar(50),
+å¹´çº§ char(4) check(å¹´çº§ like '[0-9][0-9][0-9][0-9]'),
+è¾…å¯¼å‘˜ char(8),
+ç³»åˆ«ä»£ç  char(4) ,
+ foreign key(ç³»åˆ«ä»£ç ) references ç³»åˆ«(ç³»åˆ«ä»£ç ),
 )
 go
 
-##¹ØÓÚÆäÖĞµÄÒ»Ğ©ÉèÖÃ
+## å…³äºå…¶ä¸­çš„ä¸€äº›è®¾ç½®
 
-- primary key --ÉèÖÃÖ÷¼ü
-- not null --ÉèÖÃÎª²»¿Õ
-- foreign key --ÉèÖÃÍâ¼ü
-  Óë references {table} £¨{Ö÷¼ü}£© Á¬ÓÃ
-  »òÕß constraint id_fk foreign key (id) references student (id) ÉèÖÃ
-  Í¬Ñù¿ÉÒÔ constraint id_pk primary key (id) ÉèÖÃÖ÷¼ü
+- primary key --è®¾ç½®ä¸»é”®
+- not null --è®¾ç½®ä¸ºä¸ç©º
+- foreign key --è®¾ç½®å¤–é”®
+  ä¸ references {table} ï¼ˆ{ä¸»é”®}ï¼‰ è¿ç”¨
+  æˆ–è€… constraint id_fk foreign key (id) references student (id) è®¾ç½®
+  åŒæ ·å¯ä»¥ constraint id_pk primary key (id) è®¾ç½®ä¸»é”®
 
-#create Ë÷Òı
+# create ç´¢å¼•
 
 use toyunivers
 go
 creat [unique] [clustered] [nonclustered] index idx_id
-on id£¨ÊÓÍ¼Ãû³Æ) ({column} asc/desc)
+on idï¼ˆè§†å›¾åç§°) ({column} asc/desc)
 
-#insert
-
-use toyunivers
-insert into dbo.°à¼¶ values('1001','ĞÅÏ¢°²È«151','2015')
-
-#update
+# insert
 
 use toyunivers
-update dbo.Ñ§Éú
-set ĞÕÃû='ÕÅĞ¡Èı'
-where Ñ§ºÅ=2015122001
-order by {ÁĞ} asc
+insert into dbo.ç­çº§ values('1001','ä¿¡æ¯å®‰å…¨151','2015')
 
-- order by ÅÅĞò
-
-#select
-
-##Ìõ¼ş²éÑ¯
-use toyunivers
-select ĞÔ±ğ,ĞÕÃû,³öÉúÈÕÆÚ ÄêÁä from dbo.Ñ§Éú
-where {Ìõ¼ş}
-
-##ÈËÊı²éÑ¯
-use toyunivers
-select ĞÔ±ğ,count(*) ÈËÊı from dbo.Ñ§Éú 
-group by ĞÔ±ğ
-
-- µ÷ÓÃ¾ÛºÏº¯Êı count(*) group by 
-
-##¸ù¾İ³öÉúÈÕÆÚ²éÑ¯ÄêÁä
+# update
 
 use toyunivers
-select  *,datediff(year,³öÉúÈÕÆÚ,getdate()) as ÄêÁä from dbo.Ñ§Éú  where datediff(year,³öÉúÈÕÆÚ,getdate()) >='20'
+update dbo.å­¦ç”Ÿ
+set å§“å='å¼ å°ä¸‰'
+where å­¦å·=2015122001
+order by {åˆ—} asc
 
-- datediff( year,³öÉúÈÕÆÚ,getdate()) ×îºóµÄÊı¾İ¼õÈ¥ÖĞ¼äµÄÊı¾İÒÔÇ°ÃæµÄÊı¾İÏÔÊ¾
+- order by æ’åº
 
-## ²éÑ¯ĞÕÕÅµÄÍ¬Ñ§
+# select
+
+## æ¡ä»¶æŸ¥è¯¢
+use toyunivers
+select æ€§åˆ«,å§“å,å‡ºç”Ÿæ—¥æœŸ å¹´é¾„ from dbo.å­¦ç”Ÿ
+where {æ¡ä»¶}
+
+## äººæ•°æŸ¥è¯¢
+use toyunivers
+select æ€§åˆ«,count(*) äººæ•° from dbo.å­¦ç”Ÿ 
+group by æ€§åˆ«
+
+- è°ƒç”¨èšåˆå‡½æ•° count(*) group by 
+
+## æ ¹æ®å‡ºç”Ÿæ—¥æœŸæŸ¥è¯¢å¹´é¾„
 
 use toyunivers
-SELECT * FROM dbo.Ñ§Éú
-where ĞÕÃû LIKE 'ÕÅ%'
+select  *,datediff(year,å‡ºç”Ÿæ—¥æœŸ,getdate()) as å¹´é¾„ from dbo.å­¦ç”Ÿ  where datediff(year,å‡ºç”Ÿæ—¥æœŸ,getdate()) >='20'
+
+- datediff( year,å‡ºç”Ÿæ—¥æœŸ,getdate()) æœ€åçš„æ•°æ®å‡å»ä¸­é—´çš„æ•°æ®ä»¥å‰é¢çš„æ•°æ®æ˜¾ç¤º
+
+## æŸ¥è¯¢å§“å¼ çš„åŒå­¦
+
+use toyunivers
+SELECT * FROM dbo.å­¦ç”Ÿ
+where å§“å LIKE 'å¼ %'
  
-- like 'ÕÅ%'²éÑ¯ĞÕÃûÒÔÕÅ¿ªÍ·µÄÑ§Éú
+- like 'å¼ %'æŸ¥è¯¢å§“åä»¥å¼ å¼€å¤´çš„å­¦ç”Ÿ
