@@ -1,3 +1,4 @@
+[toc]
 # create database
 
 use master 
@@ -21,7 +22,7 @@ FILEGROWTH = 5%
 )
 go
 
-#craet table
+# craet table
 
 use toyunivers
 go
